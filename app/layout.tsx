@@ -25,6 +25,10 @@ export const metadata: Metadata = {
     description: 'A mission in progress.',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
