@@ -17,7 +17,7 @@ export function NavBar() {
   const day = getMissionDay()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 relative">
+    <header className="fixed top-0 left-0 right-0 z-50">
       <nav className="bg-panel border-b border-panel-border h-11 flex items-center px-5">
         {/* Callsign */}
         <Link href="/" className="hud-text text-accent-blue mr-6 shrink-0">

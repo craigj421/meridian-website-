@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getAllBuilds, getBuildBySlug } from '@/lib/builds'
 import { StatusBadge } from '@/components/ui/StatusBadge'
@@ -47,7 +48,13 @@ export default async function BuildPage({ params }: { params: Promise<{ slug: st
       {/* Hero image */}
       {build.hero_image && (
         <div className="aspect-video bg-panel relative overflow-hidden rounded-sm mb-12">
-          <img src={build.hero_image} alt={build.title} className="w-full h-full object-cover" />
+          <Image
+            src={build.hero_image}
+            alt={build.title}
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
       )}
 
