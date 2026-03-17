@@ -17,6 +17,7 @@ const syne = Syne({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://meridian-mrd.netlify.app'),
   title: 'Meridian',
   description:
     'A mission in progress. Systems for health, builds, and life — documented in public.',
