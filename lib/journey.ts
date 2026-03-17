@@ -21,10 +21,11 @@ export function getAllJourneyEntries(
     .map(file => {
       const { frontmatter, content } = parseMdxFile(path.join(dir, file))
       const entry = frontmatter as Omit<JourneyEntry, 'content'>
+      const rawDate = entry.date as string | Date
       return {
         ...entry,
         // Ensure date is a string (gray-matter may parse it as a Date)
-        date: typeof entry.date === 'string' ? entry.date : entry.date.toISOString().split('T')[0],
+        date: typeof rawDate === 'string' ? rawDate : rawDate.toISOString().split('T')[0],
         content,
       }
     })
