@@ -9,21 +9,18 @@ import Image from 'next/image'
 const MISSION_PILLARS = [
   {
     icon: 'vital_signs',
-    label: 'Health',
-    subtitle: 'PROTOCOL_HEALTH',
-    body: 'What actually moves the needle. Real experiments, real results.',
+    label: 'HEALTH',
+    subtitle: 'Biological System Integrity',
   },
   {
     icon: 'architecture',
-    label: 'Builds',
-    subtitle: 'PROTOCOL_BUILD',
-    body: 'Tools built to solve real problems. Take what works.',
+    label: 'BUILDS',
+    subtitle: 'Active Engineering Projects',
   },
   {
     icon: 'bolt',
-    label: 'Optimize',
-    subtitle: 'PROTOCOL_OPT',
-    body: "The shortcuts took years to find. They're yours.",
+    label: 'OPTIMIZE',
+    subtitle: 'Protocol Efficiency Tuning',
   },
 ]
 
@@ -71,18 +68,17 @@ export default async function HomePage() {
                 }`}
               >
                 <span
-                  className="material-symbols-outlined text-secondary-container mb-4 block"
-                  style={{ fontSize: '28px' }}
+                  className="material-symbols-outlined text-secondary-container mb-6 block"
+                  style={{ fontSize: '32px' }}
                 >
                   {pillar.icon}
                 </span>
-                <h3 className="font-display font-bold text-xl text-on-surface mb-1">
+                <h3 className="font-display font-extrabold text-2xl tracking-tighter text-on-surface uppercase mb-2">
                   {pillar.label}
                 </h3>
-                <p className="font-mono text-[9px] tracking-widest text-outline uppercase mb-3">
+                <p className="font-mono text-[10px] tracking-widest text-outline uppercase">
                   {pillar.subtitle}
                 </p>
-                <p className="text-on-surface-variant text-sm leading-relaxed">{pillar.body}</p>
               </div>
             ))}
           </div>
@@ -123,19 +119,19 @@ export default async function HomePage() {
             </div>
 
             {/* Content */}
-            <div className="lg:col-span-5">
-              <h2 className="font-display font-bold text-2xl sm:text-3xl text-on-surface mb-4">
-                {pinnedBuild.title}
+            <div className="lg:col-span-5 space-y-6">
+              <h2 className="font-display font-extrabold text-4xl sm:text-5xl tracking-tighter uppercase text-on-surface">
+                {pinnedBuild.title} Protocol
               </h2>
-              <p className="text-on-surface-variant text-sm leading-relaxed mb-6">
+              <p className="text-on-surface-variant leading-relaxed text-sm max-w-md">
                 {pinnedBuild.description}
               </p>
               {pinnedBuild.tags.length > 0 && (
-                <div className="space-y-2 mb-8">
+                <div className="space-y-4">
                   {pinnedBuild.tags.map(tag => (
                     <div key={tag} className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 bg-tertiary shrink-0" />
-                      <span className="font-mono text-[11px] text-on-surface-variant tracking-wider uppercase">
+                      <div className="w-1.5 h-1.5 bg-tertiary shrink-0" />
+                      <span className="font-mono text-[11px] uppercase tracking-wider">
                         {tag}
                       </span>
                     </div>
@@ -144,9 +140,10 @@ export default async function HomePage() {
               )}
               <Link
                 href={`/builds/${pinnedBuild.slug}`}
-                className="inline-block bg-primary text-on-primary font-mono text-[11px] font-bold tracking-widest px-6 sm:px-8 py-3 sm:py-4 uppercase hover:shadow-[0_0_20px_rgba(0,170,255,0.3)] transition-shadow"
+                className="inline-flex items-center gap-4 bg-primary text-on-primary font-mono text-[11px] font-bold tracking-widest px-6 sm:px-8 py-3 sm:py-4 uppercase hover:shadow-[0_0_20px_rgba(0,170,255,0.3)] transition-all group"
               >
                 VIEW DOCUMENTATION
+                <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </Link>
             </div>
           </div>
@@ -156,35 +153,33 @@ export default async function HomePage() {
       {/* Recent Updates */}
       {recentUpdates.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-8 pb-24">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <p className="font-mono text-[10px] text-outline tracking-widest uppercase mb-2">
-                RECENT UPDATES
-              </p>
-              <h2 className="font-display font-bold text-2xl text-on-surface">
+          <div className="flex items-end justify-between mb-12">
+            <div className="space-y-2">
+              <span className="font-mono text-[10px] text-primary tracking-widest uppercase">RECENT UPDATES</span>
+              <h2 className="font-display font-extrabold text-4xl tracking-tighter uppercase">
                 Mission Logs
               </h2>
             </div>
             <Link
               href="/journey"
-              className="font-mono text-[10px] text-primary tracking-widest uppercase hover:text-primary-container transition-colors"
+              className="font-mono text-[11px] text-primary-fixed-dim tracking-widest flex items-center gap-2 hover:gap-4 transition-all"
             >
-              VIEW ALL
+              VIEW ALL <span className="material-symbols-outlined text-sm">arrow_forward</span>
             </Link>
           </div>
 
-          <div>
+          <div className="border-t border-outline-variant/30">
             {recentUpdates.map(entry => (
               <div
                 key={entry.date + entry.title}
-                className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-6 sm:py-8 border-b border-outline-variant/10 group hover:bg-surface-container-low transition-colors px-4 -mx-4 cursor-pointer"
+                className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 py-8 border-b border-outline-variant/10 group hover:bg-surface-container-low transition-colors px-4 -mx-4 cursor-pointer"
               >
                 {/* Date */}
-                <div className="md:col-span-2">
+                <div className="md:col-span-2 self-center">
                   <span className="font-mono text-[11px] text-outline">{entry.date}</span>
                 </div>
                 {/* Category */}
-                <div className="md:col-span-2">
+                <div className="md:col-span-2 self-center">
                   <span
                     className={`font-mono text-[9px] tracking-widest uppercase px-2 py-0.5 border ${
                       CATEGORY_COLORS[entry.category] ?? 'border-outline/40 text-outline'
@@ -194,8 +189,8 @@ export default async function HomePage() {
                   </span>
                 </div>
                 {/* Title */}
-                <div className="md:col-span-8">
-                  <span className="font-display font-bold uppercase text-on-surface group-hover:text-primary transition-colors">
+                <div className="md:col-span-8 self-center">
+                  <span className="font-display font-bold text-xl tracking-tight uppercase text-on-surface group-hover:text-primary transition-colors">
                     {entry.title}
                   </span>
                 </div>

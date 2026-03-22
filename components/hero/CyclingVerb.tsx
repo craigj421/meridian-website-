@@ -25,20 +25,16 @@ export function CyclingVerb() {
   }, [prefersReduced])
 
   return (
-    <div className="mt-12">
-      <p className="font-display font-extrabold text-3xl sm:text-5xl md:text-8xl text-on-surface tracking-tighter leading-none">
-        I am{' '}
-        <span
-          className="inline-block transition-all duration-300"
-          style={{
-            clipPath: animating
-              ? 'inset(0 0 100% 0)'
-              : 'inset(0 0 0% 0)',
-          }}
-        >
-          {VERBS[index]}
-        </span>
-      </p>
+    <div className="mt-12 text-center md:text-left">
+      <h1
+        className="font-display font-extrabold text-5xl md:text-8xl text-on-surface tracking-tighter leading-none"
+        style={{
+          clipPath: animating ? 'inset(0 0 100% 0)' : 'inset(0 0 0% 0)',
+          transition: 'clip-path 300ms ease',
+        }}
+      >
+        I am {VERBS[index]}
+      </h1>
     </div>
   )
 }
