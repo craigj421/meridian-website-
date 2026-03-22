@@ -18,10 +18,10 @@ export function Timeline({ entries }: { entries: JourneyEntry[] }) {
   return (
     <div ref={sectionRef} className="relative">
       {/* Static track line */}
-      <div className="absolute left-1.5 top-0 bottom-0 w-px bg-panel-border" />
+      <div className="absolute left-1.5 top-0 bottom-0 w-px bg-primary/10" />
       {/* Scroll-linked animated line */}
       <motion.div
-        className="absolute left-1.5 top-0 w-px bg-accent-blue origin-top"
+        className="absolute left-1.5 top-0 w-px bg-primary/30 origin-top"
         style={{
           scaleY: prefersReduced ? 1 : scaleY,
           height: '100%',

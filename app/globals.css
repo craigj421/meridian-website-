@@ -4,27 +4,36 @@
 
 @layer base {
   html {
-    background-color: #090912;
-    color: #f0f0f5;
+    background-color: #05050e;
+    color: #e4e0f0;
   }
-
   body {
-    background-color: #090912;
-    color: #f0f0f5;
+    background-color: #05050e;
+    color: #e4e0f0;
     font-family: var(--font-inter), sans-serif;
     -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
   }
-
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 }
 
 @layer utilities {
   .hud-text {
-    font-family: ui-monospace, SFMono-Regular, monospace;
+    font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     font-size: 0.7rem;
   }
+  .scanlines {
+    background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.25) 50%),
+                linear-gradient(90deg, rgba(255,0,0,0.06), rgba(0,255,0,0.02), rgba(0,0,255,0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
+  .grid-pattern {
+    background-image: radial-gradient(circle, #3e4851 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .font-display { font-family: "Syne", sans-serif; }
+  .font-mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
 }

@@ -28,7 +28,7 @@ export function StarField() {
     typeof window !== 'undefined' && window.innerWidth < 640
 
   const options: ISourceOptions = {
-    background: { color: { value: '#090912' } },
+    background: { color: { value: '#05050e' } },
     particles: {
       number: { value: isMobile ? 40 : 80 },
       color: { value: '#ffffff' },

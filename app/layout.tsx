@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Syne } from 'next/font/google'
+import { Inter, Syne, Space_Grotesk } from 'next/font/google'
 import { NavBar } from '@/components/nav/NavBar'
 import { Footer } from '@/components/footer/Footer'
 import './globals.css'
@@ -13,6 +13,13 @@ const inter = Inter({
 const syne = Syne({
   subsets: ['latin'],
   variable: '--font-syne',
+  display: 'swap',
+})
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+  weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
 })
 
@@ -38,10 +45,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${syne.variable}`}>
+    <html lang="en" className={`${inter.variable} ${syne.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+        />
+      </head>
       <body className="bg-bg text-text-primary min-h-screen">
         <NavBar />
-        <main className="pt-11">{children}</main>
+        <main className="pt-[44px]">{children}</main>
         <Footer />
       </body>
     </html>

@@ -23,17 +23,17 @@ export function MobileMenu({ isOpen, onClose, currentPath }: MobileMenuProps) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.15 }}
-          className="absolute top-full left-0 right-0 bg-panel border-b border-panel-border z-40"
+          className="absolute top-full left-0 right-0 bg-[#05050e] border-b border-slate-800/30 z-40 backdrop-blur-md"
         >
           {links.map(link => (
             <Link
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className={`block px-6 py-4 hud-text border-b border-panel-border last:border-b-0 ${
+              className={`block px-6 py-4 font-mono text-[10px] tracking-[0.15em] uppercase border-b border-outline-variant/10 last:border-b-0 ${
                 currentPath.startsWith(link.href)
-                  ? 'text-accent-gold border-l-2 border-l-accent-gold pl-5'
-                  : 'text-text-muted hover:text-text-primary'
+                  ? 'text-yellow-400'
+                  : 'text-slate-500 hover:text-blue-300'
               }`}
             >
               {link.label}

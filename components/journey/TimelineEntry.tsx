@@ -2,9 +2,9 @@
 import { motion, useReducedMotion } from 'framer-motion'
 
 const CATEGORY_STYLES: Record<string, string> = {
-  health: 'bg-green-400/10 text-green-400 border-green-400/30',
-  build: 'bg-accent-blue/10 text-accent-blue border-accent-blue/30',
-  milestone: 'bg-accent-gold/10 text-accent-gold border-accent-gold/30',
+  health: 'border-tertiary/40 text-tertiary',
+  build: 'border-primary/40 text-primary',
+  milestone: 'border-secondary-container/40 text-secondary-container',
 }
 
 interface TimelineEntryProps {
@@ -23,21 +23,23 @@ export function TimelineEntry({ title, date, category, description }: TimelineEn
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="relative pl-8 pb-10"
+      className="relative border-l-2 border-primary/20 hover:border-primary pl-6 pb-10 group transition-colors"
     >
       {/* Node dot */}
-      <div className="absolute left-0 top-1 w-3 h-3 rounded-full bg-accent-blue border-2 border-bg z-10" />
+      <div className="absolute left-[-5px] top-1 w-2.5 h-2.5 rounded-full bg-primary/50 border-2 border-bg z-10 group-hover:bg-primary transition-colors" />
 
       <div className="flex flex-wrap items-center gap-3 mb-2">
-        <span className="hud-text text-text-muted">{date}</span>
+        <span className="font-mono text-[11px] text-outline">{date}</span>
         <span
-          className={`hud-text px-2 py-0.5 rounded-sm border ${CATEGORY_STYLES[category] ?? 'text-text-muted border-panel-border'}`}
+          className={`font-mono text-[9px] tracking-widest uppercase px-2 py-0.5 border ${CATEGORY_STYLES[category] ?? 'border-outline/40 text-outline'}`}
         >
           {category.toUpperCase()}
         </span>
       </div>
-      <h3 className="font-display font-bold text-lg text-text-primary mb-1">{title}</h3>
-      <p className="text-text-muted text-sm leading-relaxed">{description}</p>
+      <h3 className="font-display font-bold text-lg text-on-surface uppercase mb-1 group-hover:text-primary transition-colors">
+        {title}
+      </h3>
+      <p className="text-on-surface-variant text-sm leading-relaxed">{description}</p>
     </motion.div>
   )
 }

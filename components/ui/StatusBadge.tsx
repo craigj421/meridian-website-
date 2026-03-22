@@ -3,22 +3,22 @@ type Status = 'in-progress' | 'shipped' | 'paused'
 const config: Record<Status, { label: string; className: string }> = {
   'in-progress': {
     label: 'IN PROGRESS',
-    className: 'bg-accent-blue/10 text-accent-blue border border-accent-blue/30',
+    className: 'border-primary/40 text-primary',
   },
   shipped: {
     label: 'SHIPPED',
-    className: 'bg-accent-gold/10 text-accent-gold border border-accent-gold/30',
+    className: 'border-secondary-container/40 text-secondary-container',
   },
   paused: {
     label: 'PAUSED',
-    className: 'bg-text-muted/10 text-text-muted border border-text-muted/30',
+    className: 'border-outline/40 text-outline',
   },
 }
 
 export function StatusBadge({ status }: { status: Status }) {
   const { label, className } = config[status]
   return (
-    <span className={`hud-text px-2 py-0.5 rounded-sm ${className}`}>
+    <span className={`font-mono text-[9px] tracking-widest uppercase px-2 py-0.5 border ${className}`}>
       {label}
     </span>
   )

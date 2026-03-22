@@ -25,11 +25,11 @@ export function CyclingVerb() {
   }, [prefersReduced])
 
   return (
-    <div className="mt-10">
-      <p className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-text-primary">
+    <div className="mt-12">
+      <p className="font-display font-extrabold text-3xl sm:text-5xl md:text-8xl text-on-surface tracking-tighter leading-none">
         I am{' '}
         <span
-          className="inline-block text-text-primary transition-all duration-300"
+          className="inline-block transition-all duration-300"
           style={{
             clipPath: animating
               ? 'inset(0 0 100% 0)'
